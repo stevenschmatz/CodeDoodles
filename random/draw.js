@@ -2,6 +2,8 @@
 	canvas = setupCanvas();
 	ctx = canvas.getContext("2d");
 
+
+
 	document.body.appendChild(canvas);
 }).call(this);
 
