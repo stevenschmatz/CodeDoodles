@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<title>First</title>
+	<script type="text/javascript">
+
+		/*
+		============
+		Class Square
+		============
+		*/
+
+		function square(xPos, yPos, sideLength) {
+			this.xPos = xPos;
+			this.yPos = yPos;
+			this.sideLength = sideLength;
+		}
+
+		square.prototype.draw = function(ctx) {
+			ctx.fillStyle = "rgb(255, 0, 0)";
+			ctx.fillRect(this.xPos, this.yPos, this.sideLength, this.sideLength);
+		};
+
+		/*
+		=====
+		Setup
+		=====
+		*/
+
+		squareSize = 10;
+
+		function setup() {
+			var canvas = document.getElementById("scrawl");
+			var ctx = canvas.getContext("2d");
+
+			for (var i = 0; i < 10; i++) {
+				newSquare = new square(squareSize*i*2 + squareSize, squareSize*i*2 + squareSize, squareSize);
+				newSquare.draw(ctx);
+			}
+		}
+	</script>
+</head>
+
+<body onload="setup()">
+	<canvas id="scrawl" width="720" height="180"></canvas>
+</body>
